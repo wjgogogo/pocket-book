@@ -1,0 +1,20 @@
+{
+  "name": "pocket-book",
+  "version": "1.0.0",
+  "description": "pocket book made by react",
+  "main": "index.js",
+  "scripts": {
+    "start:app": "cd app && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjgogogo/pocket-book.git"
+  },
+  "keywords": [],
+  "author": "bacteria369 <906626481@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wjgogogo/pocket-book/issues"
+  },
+  "homepage": "https://github.com/wjgogogo/pocket-book#readme"
+}
