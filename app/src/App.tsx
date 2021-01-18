@@ -43,7 +43,7 @@ function App() {
     <Layout className={"app"}>
       <SideMenu/>
       <MainContent/>
-    </Layout>;
+    </Layout>
   </BrowserRouter>
 }
 

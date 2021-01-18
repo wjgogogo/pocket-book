@@ -1,4 +1,4 @@
-import {Statistic} from 'antd';
+import {Empty, Statistic} from 'antd';
 import React, {FC} from 'react';
 import Icon from '../../components/Icon/Icon';
 import Logo from '../../components/Logo/Logo';
@@ -20,7 +20,10 @@ const DetailPage: FC<IDetailPageProps> = ({}) => {
           <Icon icon={"icon-rili"} className={"detail-page__header__category__calendar"}/>
         </div>
       </div>
-      {/*<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={"您还没有开始记账"}/>*/}
+
+      <div className={"detail-page__content"}>
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={"您还没有开始记账"}/>
+      </div>
     </div>
   );
 };
