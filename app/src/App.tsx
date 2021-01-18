@@ -1,11 +1,12 @@
 import React from "react";
 import {Button, Layout} from "antd";
-
-import "antd/dist/antd.css";
-// import "./assets/fonts/iconfont.css";
-import './App.css';
+import {BrowserRouter} from "react-router-dom";
 import {EXPENDITURE_ICON_LIST, INCOME_ICON_LIST} from "./constants";
 import SideMenu from "./components/SideMenu/SideMenu";
+import MainContent from "./components/MainContent/MainContent";
+
+import "antd/dist/antd.css";
+import './App.css';
 
 let div = <>
   <div className="app">
@@ -36,17 +37,14 @@ let div = <>
   </div>
 </>;
 
-const {Header, Content} = Layout;
 
 function App() {
-
-  return <Layout className={"app"}>
-    <SideMenu/>
-    <Layout>
-      <Header>Header</Header>
-      <Content>Content</Content>
-    </Layout>
-  </Layout>;
+  return <BrowserRouter>
+    <Layout className={"app"}>
+      <SideMenu/>
+      <MainContent/>
+    </Layout>;
+  </BrowserRouter>
 }
 
 export default App;
