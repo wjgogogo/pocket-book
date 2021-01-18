@@ -1,0 +1,41 @@
+.detail-page {
+
+}
+
+
+.detail-page__header {
+	padding: 0.8rem 1.6rem;
+	border-bottom: solid 1px #f0f0f0;
+	box-shadow: 0 0 2px #eee;
+}
+
+
+.detail-page__header__category {
+	display: flex;
+	align-items: center;
+}
+
+
+.detail-page__header__category__calendar {
+	height: 3rem;
+	width: 3rem;
+}
+
+
+.detail-page__header__category .month-picker {
+	flex-basis: 20rem;
+	
+}
+
+.detail-page__header__category .ant-statistic {
+	flex-grow: 1;
+}
+
+
+.detail-page__header__category .ant-statistic {
+	flex-grow: 1;
+}
+
+
+.detail-page__content {
+}

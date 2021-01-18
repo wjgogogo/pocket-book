@@ -2,42 +2,26 @@
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
-.side-menu__logo {
-	height: 6.4rem;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	
-	padding: 1.6rem;
-	font-size: 2rem;
-	font-weight: bold;
-}
 
-.side-menu__logo > .icon {
-	width: 3rem;
-	height: 3rem;
-	margin-right: 1rem;
+.logo .icon {
 	transition: margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.side-menu__logo > span {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+.logo > span {
 	transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
 	width 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.ant-layout-sider-collapsed .side-menu__logo {
+.ant-layout-sider-collapsed .logo {
 	justify-content: center;
 }
 
 
-.ant-layout-sider-collapsed .side-menu__logo .icon {
+.ant-layout-sider-collapsed .logo .icon {
 	margin-right: 0;
 }
 
-.ant-layout-sider-collapsed .side-menu__logo span {
+.ant-layout-sider-collapsed .logo span {
 	width: 0;
 	opacity: 0;
 }

@@ -3,6 +3,7 @@ import "./SideMenu.css";
 import {Layout, Menu} from "antd";
 import Icon from "../Icon/Icon";
 import {Link} from 'react-router-dom';
+import Logo from '../Logo/Logo';
 
 interface ISideMenuProps {
 }
@@ -10,10 +11,7 @@ interface ISideMenuProps {
 const SideMenu: FC<ISideMenuProps> = ({}) => {
   return (
     <Layout.Sider theme={"light"} className={"side-menu"} collapsible>
-      <div className={"side-menu__logo"}>
-        <Icon icon={"icon-bookkeeping"}/>
-        <span>一步记账</span>
-      </div>
+      <Logo/>
       <Menu mode="inline" inlineCollapsed={true}>
         <Menu.Item key="detail" icon={<Icon icon={"icon-zhuye"}/>}>
           <Link to={"/"}>
