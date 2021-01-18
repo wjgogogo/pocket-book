@@ -1,13 +1,7 @@
-.html {
+html {
 	font-size: 10px;
 }
 
-.icon {
-	width: 2rem;
-	height: 2rem;
-	fill: currentColor;
-}
-
-.app {
-
+html, #root, .app {
+	height: 100%;
 }

@@ -1,0 +1,54 @@
+.side-menu {
+
+}
+
+.side-menu__logo {
+	height: 6.4rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	
+	padding: 1.6rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.side-menu__logo > .icon {
+	width: 3rem;
+	height: 3rem;
+	margin-right: 1rem;
+	transition: margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.side-menu__logo > span {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+	width 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.ant-layout-sider-collapsed .side-menu__logo {
+	justify-content: center;
+}
+
+
+.ant-layout-sider-collapsed .side-menu__logo .icon {
+	margin-right: 0;
+}
+
+.ant-layout-sider-collapsed .side-menu__logo span {
+	width: 0;
+	opacity: 0;
+}
+
+.ant-menu-item {
+	display: flex;
+	align-items: center;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item {
+	padding: 0 calc(50% - 2rem / 2);
+}
+
+
