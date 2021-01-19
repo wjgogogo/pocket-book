@@ -3,7 +3,7 @@ import {groupBy, map, orderBy, reduce} from "lodash";
 import {DateFormat, formatTimeStamp} from "./dateFormatter";
 import {Moment} from "moment";
 
-export type RecordWithMomentTimStamp = Omit<RecordItem, "timeStamp"> & { timeStamp: Moment | null }
+export type RecordWithMomentTimStamp = Omit<RecordItem, "timeStamp"> & { timeStamp: Moment }
 
 export const normalizeRecord = (record: RecordWithMomentTimStamp): RecordItem => {
   const timeStamp = record.timeStamp!.valueOf();

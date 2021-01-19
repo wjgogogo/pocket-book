@@ -1,0 +1,37 @@
+{
+  "records": [
+    {
+      "id": 1,
+      "timeStamp": 1611825300168,
+      "type": "income",
+      "name": "工资",
+      "price": 1000,
+      "remark": "这是我的血汗钱啊"
+    },
+    {
+      "id": 2,
+      "timeStamp": 1611825300168,
+      "type": "income",
+      "name": "工资",
+      "price": 1000,
+      "remark": "这是我的血汗钱啊"
+    },
+    {
+      "id": 3,
+      "timeStamp": 1611825300168,
+      "type": "income",
+      "name": "工资",
+      "price": 1000,
+      "remark": "这是我的血汗钱啊"
+    },
+    {
+      "id": 4,
+      "timeStamp": 1611825300168,
+      "type": "income",
+      "name": "工资",
+      "price": 1000,
+      "remark": "这是我的血汗钱啊"
+    }
+
+  ]
+}

@@ -9,8 +9,7 @@ import Context from "../../components/Context/Context";
 import {getSummary, groupRecordListByDay} from '../../services/recordFormatter';
 import IconButton from "../../components/IconButton/IconButton";
 import {RecordItem} from "../../components/Context/reducer";
-import {createRecord, updateRecord} from "../../components/Context/action";
-import {Moment} from "moment";
+import {createRecord, updateCurrentMonth, updateRecord} from "../../components/Context/action";
 
 interface DetailPageProps {
 }
@@ -45,8 +44,8 @@ const DetailPage: FC<DetailPageProps> = ({}) => {
     }
   }
 
-  function handleChangeCurrentMonth(moment: Moment | null) {
-    console.log("moment", moment)
+  function handleChangeCurrentMonth(moment: any) {
+    dispatch(updateCurrentMonth(moment));
   }
 
   return (
@@ -55,7 +54,9 @@ const DetailPage: FC<DetailPageProps> = ({}) => {
         <Logo size={"large"}/>
         <div className={"detail-page__header__category"}>
           <Statistic title={"请选择月份"}
-                     valueRender={() => <LocaleDatePicker picker={"month"} onChange={handleChangeCurrentMonth}/>}/>
+                     valueRender={() => <LocaleDatePicker picker={"month"}
+                                                          value={state.currentMonth}
+                                                          onChange={handleChangeCurrentMonth}/>}/>
           <Statistic title={"总收入"} value={summary.totalIncome}/>
           <Statistic title={"总支出"} value={summary.totalExpenditure}/>
           <IconButton icon={"icon-huabanfuben"}

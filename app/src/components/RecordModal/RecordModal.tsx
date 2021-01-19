@@ -24,7 +24,7 @@ const RecordModal: FC<RecordModalProps> = ({visible, handleToggleModal, handleUp
     setState({...state, type, name})
   }
 
-  function handleDateChange(timeStamp: Moment | null) {
+  function handleDateChange(timeStamp: Moment) {
     setState({...state, timeStamp})
   }
 

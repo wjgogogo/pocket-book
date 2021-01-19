@@ -7,15 +7,16 @@ import moment, {Moment} from "moment";
 
 interface MonthPickerProps {
   picker?: "month" | "date";
-  value?: Moment | null;
-  onChange?: (timeStamp: Moment | null, dateString: string) => void;
+  value?: Moment;
+  onChange?: (timeStamp: Moment, dateString: string) => void;
 }
 
 const LocaleDatePicker: FC<MonthPickerProps> = ({picker = "date", value, onChange}) => {
   return <DatePicker locale={locale} picker={picker} inputReadOnly={true}
+                     allowClear={false}
                      disabledDate={time => time.isAfter(moment())}
                      value={value}
-                     onChange={onChange}/>;
+                     onChange={onChange as any}/>;
 }
 
 export default LocaleDatePicker;

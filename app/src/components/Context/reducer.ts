@@ -1,4 +1,6 @@
 import {Action, ActionType} from "./action";
+import {getCurrentMonth} from "../../services/dateFormatter";
+import {Moment} from "moment";
 
 
 export enum RecordType {
@@ -16,12 +18,14 @@ export interface RecordItem {
 }
 
 export interface State {
-  currentMonth?: string;
+  currentMonth?: Moment;
+  loading?: boolean;
   recordList: RecordItem[];
 }
 
 export const defaultState: State = {
-  currentMonth: undefined, recordList: [
+  currentMonth: getCurrentMonth(),
+  recordList: [
     {
       id: 1611825300868,
       timeStamp: 1611825300868,
@@ -29,7 +33,6 @@ export const defaultState: State = {
       name: "工资",
       price: 1000,
       remark: "这是我的血汗钱啊"
-
     },
     {
       id: 1611825300168,
@@ -38,7 +41,6 @@ export const defaultState: State = {
       name: "工资",
       price: 1000,
       remark: "这是我的血汗钱啊"
-
     },
     {
       id: 1611825300268,
@@ -51,7 +53,7 @@ export const defaultState: State = {
   ]
 };
 
-export default (state: State = defaultState, action: ActionType) => {
+export default (state: State, action: ActionType) => {
   switch (action.type) {
     case Action.CREATE_RECORD:
       action.record.id = action.record.timeStamp;
@@ -70,6 +72,13 @@ export default (state: State = defaultState, action: ActionType) => {
         ...state,
         recordList: state.recordList.filter(item => item.id !== action.recordId)
       }
+
+    case Action.UPDATE_CURRENT_MONTH:
+      return {
+        ...state,
+        currentMonth: action.month
+      }
+
     default:
       return state;
   }
