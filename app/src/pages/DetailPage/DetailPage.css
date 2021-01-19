@@ -5,7 +5,7 @@
 
 .detail-page__header {
 	padding: 0.8rem 1.6rem;
-	border-bottom: solid 1px #f0f0f0;
+	border-bottom: solid 1px rgba(0,0,0,0.16);
 	box-shadow: 0 0 2px #eee;
 }
 
@@ -16,7 +16,7 @@
 }
 
 
-.detail-page__header__category__calendar {
+.detail-page__header__category__add .icon {
 	height: 3rem;
 	width: 3rem;
 }

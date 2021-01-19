@@ -2,11 +2,11 @@ import React, {FC} from 'react';
 import "./Logo.css";
 import Icon from "../Icon/Icon";
 
-interface ILogoProps {
+interface LogoProps {
   size?: "large" | "default"
 }
 
-const Logo: FC<ILogoProps> = ({size = "default"}) => {
+const Logo: FC<LogoProps> = ({size = "default"}) => {
   return (
     <div className={`logo logo-${size}`}>
       <Icon icon={"icon-bookkeeping"}/>

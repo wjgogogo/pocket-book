@@ -1,0 +1,21 @@
+.record-by-day__summary {
+	color: rgba(0, 0, 0, 0.45);
+	padding: 0.8rem 1.6rem;
+	font-size: 1.6rem;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.record-by-day__summary__date {
+	float: left;
+}
+
+.record-by-day__summary__detail{
+	float: right;
+	margin-left: 1rem;
+}
+
+
+.record-by-day__list {
+	padding: 0.8rem 2rem 0.8rem 4rem;
+}

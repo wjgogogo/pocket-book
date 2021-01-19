@@ -4,10 +4,10 @@ import {renderRoutes} from "react-router-config";
 import {ROUTES} from "../../services/routes";
 import "./MainContent.css";
 
-interface IContentProps {
+interface ContentProps {
 }
 
-const MainContent: FC<IContentProps> = ({}) => {
+const MainContent: FC<ContentProps> = ({}) => {
   return (
     <Layout className={"main-content"}>
       {renderRoutes(ROUTES)}

@@ -5,10 +5,10 @@ import Icon from "../Icon/Icon";
 import {Link} from 'react-router-dom';
 import Logo from '../Logo/Logo';
 
-interface ISideMenuProps {
+interface SideMenuProps {
 }
 
-const SideMenu: FC<ISideMenuProps> = ({}) => {
+const SideMenu: FC<SideMenuProps> = ({}) => {
   return (
     <Layout.Sider theme={"light"} className={"side-menu"} collapsible>
       <Logo/>
