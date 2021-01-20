@@ -3,16 +3,16 @@ import {getIconByName} from '../../services/iconSelector';
 import Icon from '../Icon/Icon';
 import "./Record.css";
 import IconButton from "../IconButton/IconButton";
-import {RecordItem} from "../Context/reducer";
 import {Popconfirm} from 'antd';
 import Context from "../Context/Context";
-import {deleteRecord} from "../Context/action";
+import {RecordItem} from "../../hooks/enhancedReducer/reducer/reducer";
+import {deleteRecord} from "../../hooks/enhancedReducer/reducer/action";
 
 interface RecordProps extends RecordItem {
   handleSetUpdateRecordId: (recordId: number) => void;
 }
 
-const Record: FC<RecordProps> = ({id, type, name, price, remark, handleSetUpdateRecordId}) => {
+const Record: FC<RecordProps> = ({id: id, type, name, price, remark, handleSetUpdateRecordId}) => {
 
   const {dispatch} = useContext(Context);
   const icon = getIconByName(type, name);

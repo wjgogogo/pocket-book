@@ -1,9 +1,7 @@
-import React, {createContext, Dispatch, FC, useCallback, useEffect, useReducer} from 'react';
-import reducer, {defaultState, State} from "./reducer";
-import {ActionType} from "./action";
-
-
-type EnhancedDispatch = (fn: ActionType | ((d: Dispatch<ActionType>) => void)) => void;
+import React, {createContext, FC} from 'react';
+import {useEnhancedReducer} from "../../hooks/enhancedReducer/useEnhancedReducer";
+import {defaultState, State} from "../../hooks/enhancedReducer/reducer/reducer";
+import {EnhancedDispatch} from "../../hooks/enhancedReducer/middlewares/middlewares";
 
 const Context = createContext<{
   state: State,
@@ -13,22 +11,10 @@ const Context = createContext<{
 
 
 export const ContextProvider: FC = ({children}) => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
-
-  const enhancedDispatch = useCallback<EnhancedDispatch>(fn => {
-    if (typeof fn === "function") {
-      return fn(dispatch);
-    }
-    dispatch(fn)
-  }, [dispatch]);
-
-
-  useEffect(()=>{
-
-  },[state.currentMonth])
+  const store = useEnhancedReducer();
 
   return (
-    <Context.Provider value={{state, dispatch: enhancedDispatch}}>
+    <Context.Provider value={store}>
       {children}
     </Context.Provider>
   );

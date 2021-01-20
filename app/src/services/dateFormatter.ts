@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment, {Moment} from "moment";
 
 moment.locale('zh-CN');
 
@@ -20,8 +20,13 @@ export const getCurrentMonth = () => {
   return moment()
 }
 
-export const getMonthRange = () => {
-  const start = moment().startOf("month").valueOf();
-  const end = moment().endOf("month").valueOf();
+export const getMonthRange = (month:Moment) => {
+  const start = moment(month).startOf("month").valueOf();
+  const end = moment(month).endOf("month").valueOf();
   return [start, end]
+}
+
+
+export const isSameMonth=(timeStamp:number,currentMonth:Moment)=>{
+  moment(timeStamp).isSame()
 }

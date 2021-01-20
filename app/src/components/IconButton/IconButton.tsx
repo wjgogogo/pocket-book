@@ -14,8 +14,7 @@ const IconButton: FC<IconButtonProps> = ({icon, className, onClick}) => {
                  className={className}
                  icon={<Icon icon={`${icon}`}/>}
                  onClick={onClick}
-  />
-    ;
+  />;
 };
 
 export default IconButton;

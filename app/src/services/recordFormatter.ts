@@ -1,7 +1,7 @@
-import {RecordItem, RecordType} from "../components/Context/reducer";
 import {groupBy, map, orderBy, reduce} from "lodash";
 import {DateFormat, formatTimeStamp} from "./dateFormatter";
 import {Moment} from "moment";
+import {RecordItem, RecordType} from "../hooks/enhancedReducer/reducer/reducer";
 
 export type RecordWithMomentTimStamp = Omit<RecordItem, "timeStamp"> & { timeStamp: Moment }
 

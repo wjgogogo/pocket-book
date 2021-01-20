@@ -2,7 +2,7 @@
   "records": [
     {
       "id": 1,
-      "timeStamp": 1611825300168,
+      "timeStamp": 1609428602796,
       "type": "income",
       "name": "工资",
       "price": 1000,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "timeStamp": 1611825300168,
+      "timeStamp": 1611070202796,
       "type": "income",
       "name": "工资",
       "price": 1000,
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "timeStamp": 1611825300168,
+      "timeStamp": 1610983802796,
       "type": "income",
       "name": "工资",
       "price": 1000,
@@ -26,12 +26,26 @@
     },
     {
       "id": 4,
-      "timeStamp": 1611825300168,
+      "timeStamp": 1611070202796,
       "type": "income",
       "name": "工资",
       "price": 1000,
       "remark": "这是我的血汗钱啊"
+    },
+    {
+      "timeStamp": 1611109445455,
+      "type": "expenditure",
+      "name": "餐饮",
+      "price": -200,
+      "id": 5
+    },
+    {
+      "timeStamp": 1611112742672,
+      "price": -12,
+      "remark": "12",
+      "type": "expenditure",
+      "name": "学习",
+      "id": 6
     }
-
   ]
 }

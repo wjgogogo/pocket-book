@@ -4,11 +4,11 @@ import "./RecordModal.css";
 import IconButton from "../IconButton/IconButton";
 import {EXPENDITURE_ICON_LIST, INCOME_ICON_LIST} from "../../constants";
 import LocaleDatePicker from "../LocaleDatePicker/LocaleDatePicker";
-import {RecordItem, RecordType} from "../Context/reducer";
 import classNames from "classnames";
 import {Moment} from "moment";
 import {normalizeDate} from "../../services/dateFormatter";
 import {normalizeRecord, RecordWithMomentTimStamp} from "../../services/recordFormatter";
+import {RecordItem, RecordType} from "../../hooks/enhancedReducer/reducer/reducer";
 
 interface RecordModalProps {
   visible: boolean;

@@ -8,8 +8,9 @@ import RecordModal from "../../components/RecordModal/RecordModal";
 import Context from "../../components/Context/Context";
 import {getSummary, groupRecordListByDay} from '../../services/recordFormatter';
 import IconButton from "../../components/IconButton/IconButton";
-import {RecordItem} from "../../components/Context/reducer";
-import {createRecord, updateCurrentMonth, updateRecord} from "../../components/Context/action";
+import {RecordItem} from "../../hooks/enhancedReducer/reducer/reducer";
+import {updateCurrentMonth, updateRecord} from "../../hooks/enhancedReducer/reducer/action";
+import {createNewRecordAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
 
 interface DetailPageProps {
 }
@@ -40,7 +41,7 @@ const DetailPage: FC<DetailPageProps> = ({}) => {
     if (record.id) {
       dispatch(updateRecord(record))
     } else {
-      dispatch(createRecord(record))
+      dispatch(createNewRecordAsync(record))
     }
   }
 
