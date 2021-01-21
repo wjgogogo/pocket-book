@@ -1,18 +1,13 @@
 .detail-page {
-
+	height:  calc(100% - 14.5rem);
+	position: relative;
 }
 
 
 .detail-page__header {
-	padding: 0.8rem 1.6rem;
-	border-bottom: solid 1px rgba(0,0,0,0.16);
-	box-shadow: 0 0 2px #eee;
-}
-
-
-.detail-page__header__category {
-	display: flex;
-	align-items: center;
+	right: 2rem;
+	top: -4.5rem;
+	position: absolute;
 }
 
 
@@ -22,20 +17,7 @@
 }
 
 
-.detail-page__header__category .month-picker {
-	flex-basis: 20rem;
-	
-}
-
-.detail-page__header__category .ant-statistic {
-	flex-grow: 1;
-}
-
-
-.detail-page__header__category .ant-statistic {
-	flex-grow: 1;
-}
-
-
 .detail-page__content {
+	height: 100%;
+	overflow-y: auto;
 }

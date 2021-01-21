@@ -3,14 +3,12 @@ import {Layout} from "antd";
 import {BrowserRouter} from "react-router-dom";
 import SideMenu from "./components/SideMenu/SideMenu";
 import MainContent from "./components/MainContent/MainContent";
-import {ContextProvider} from "./components/Context/Context";
+import {ContextProvider} from "./components/ContextProvider/ContextProvider";
 
 import "antd/dist/antd.css";
 import './App.css';
 
-
 function App() {
-
   return <BrowserRouter>
     <ContextProvider>
       <Layout className={"app"}>

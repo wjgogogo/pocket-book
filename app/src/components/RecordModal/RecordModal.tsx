@@ -76,7 +76,7 @@ const RecordModal: FC<RecordModalProps> = ({visible, handleToggleModal, handleUp
             }}>
         <Tabs.TabPane tab="支出" key={RecordType.Expenditure}>
           {EXPENDITURE_ICON_LIST.map(item =>
-            <div className={"record-item"}>
+            <div key={item.name} className={"record-item"}>
               <IconButton icon={item.icon}
                           className={classNames({"active": state.name === item.name})}
                           onClick={() => handleTypeSelect(RecordType.Expenditure, item.name)}/>
@@ -84,9 +84,9 @@ const RecordModal: FC<RecordModalProps> = ({visible, handleToggleModal, handleUp
             </div>
           )}
         </Tabs.TabPane>
-        <Tabs.TabPane tab="收入" key={RecordType.Income}>
+        <Tabs.TabPane tab="收 入" key={RecordType.Income}>
           {INCOME_ICON_LIST.map(item =>
-            <div className={"record-item"}>
+            <div key={item.name} className={"record-item"}>
               <IconButton icon={item.icon}
                           className={classNames({"active": state.name === item.name})}
                           onClick={() => handleTypeSelect(RecordType.Income, item.name)}/>

@@ -18,7 +18,7 @@ export interface Summary {
 }
 
 export interface RecordListByDay extends Summary {
-  date: string;
+  timeStamp: number;
   recordList: RecordItem[]
 }
 
@@ -34,14 +34,32 @@ export const getSummary = (recordList: RecordItem[]): Summary => {
 }
 
 export const groupRecordListByDay = (recordList: RecordItem[]): RecordListByDay[] => {
-  const groupedList = groupBy(recordList, (record) => formatTimeStamp(record.timeStamp))
-  return map(orderBy(Object.keys(groupedList), "desc"), date => {
-    const recordList = groupedList[date];
+  const groupedDayList = groupBy(recordList, (record) => formatTimeStamp(record.timeStamp))
+  return orderBy(map(Object.keys(groupedDayList), day => {
+    const recordList = groupedDayList[day];
     const summary = getSummary(recordList)
     return {
       ...summary,
-      date: formatTimeStamp(recordList[0].timeStamp, DateFormat.MONTH_DAYOFWEEK),
+      timeStamp: recordList[0].timeStamp,
       recordList: orderBy(recordList, ["timeStamp"], ["desc"])
     }
-  });
+  }), ["timeStamp"], ["desc"]);
+}
+
+
+export const getEveryDaySummaryOfMonth = (month: Moment, recordList: RecordItem[]): Array<Summary & { date: number }> => {
+  const daysOfMonth = month.daysInMonth();
+  const resultOfPayment = groupRecordListByDay(recordList)
+    .map(d => ({
+      date: parseInt(formatTimeStamp(d.timeStamp, DateFormat.Day)),
+      totalExpenditure: Math.abs(d.totalExpenditure),
+      totalIncome: d.totalIncome
+    }));
+
+  const result = [];
+  for (let i = 1; i <= daysOfMonth; i++) {
+    const payment = resultOfPayment.find(d => d.date === i)
+    result.push(payment || {date: i, totalExpenditure: 0, totalIncome: 0})
+  }
+  return result
 }

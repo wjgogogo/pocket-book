@@ -1,6 +1,6 @@
 import {Action, ActionType} from "./action";
 import {Moment} from "moment";
-import {getCurrentMonth} from "../../../services/dateFormatter";
+import {getCurrentMonth, isSameMonth} from "../../../services/dateFormatter";
 
 
 export enum RecordType {
@@ -30,24 +30,24 @@ export const defaultState: State = {
 
 export default (state: State, action: ActionType) => {
   switch (action.type) {
-    case Action.FETCH_RECORD:
+    case Action.UPDATE_RECORD_LIST:
       return {
         ...state,
         recordList: action.recordList
       }
 
-    case Action.CREATE_RECORD:
-      action.record.id = action.record.timeStamp;
+    case Action.ADD_RECORD:
       return {
         ...state,
-        recordList: state.recordList.concat(action.record)
+        recordList: isSameMonth(action.record.timeStamp, state.currentMonth) ?
+          state.recordList.concat(action.record) : state.recordList
       }
     case Action.UPDATE_RECORD:
       return {
         ...state,
-        recordList: state.recordList.map(item => item.id === action.record.id ? action.record : item)
+        recordList: isSameMonth(action.record.timeStamp, state.currentMonth) ?
+          state.recordList.map(i => i.id === action.record.id ? action.record : i) : state.recordList
       }
-
     case Action.DELETE_RECORD:
       return {
         ...state,

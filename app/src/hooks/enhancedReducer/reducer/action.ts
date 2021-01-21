@@ -2,21 +2,21 @@ import {Moment} from "moment";
 import {RecordItem} from "./reducer";
 
 export enum Action {
-  FETCH_RECORD = "fetch_record",
-  CREATE_RECORD = "create_record",
-  UPDATE_RECORD = "update_record",
+  ADD_RECORD = "add_record",
   DELETE_RECORD = "delete_record",
+  UPDATE_RECORD = "update_record",
+  UPDATE_RECORD_LIST = "update_record_list",
 
   UPDATE_CURRENT_MONTH = "update_current_month"
 }
 
 export const updateRecordList = (recordList: RecordItem[]) => ({
-  type: Action.FETCH_RECORD,
+  type: Action.UPDATE_RECORD_LIST,
   recordList
 } as const)
 
-export const createRecord = (record: RecordItem) => ({
-  type: Action.CREATE_RECORD,
+export const addRecord = (record: RecordItem) => ({
+  type: Action.ADD_RECORD,
   record
 } as const)
 
@@ -38,7 +38,7 @@ export const updateCurrentMonth = (month: Moment) => ({
 
 export type ActionType =
   | ReturnType<typeof updateRecordList>
-  | ReturnType<typeof createRecord>
+  | ReturnType<typeof addRecord>
   | ReturnType<typeof updateRecord>
   | ReturnType<typeof deleteRecord>
   | ReturnType<typeof updateCurrentMonth>;

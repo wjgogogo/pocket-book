@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {RecordListByDay} from '../../services/recordFormatter';
 import Record from '../Record/Record';
 import "./RecordByDay.css";
+import {DateFormat, formatTimeStamp} from "../../services/dateFormatter";
 
 interface RecordByDayProps extends RecordListByDay {
   handleSetUpdateRecordId: (recordId: number) => void;
@@ -9,7 +10,7 @@ interface RecordByDayProps extends RecordListByDay {
 
 
 const RecordByDay: FC<RecordByDayProps> = ({
-                                             date,
+                                             timeStamp,
                                              totalIncome,
                                              totalExpenditure,
                                              recordList,
@@ -18,7 +19,7 @@ const RecordByDay: FC<RecordByDayProps> = ({
   return (
     <div className={"record-by-day"}>
       <div className={"record-by-day__summary"}>
-        <div className={"record-by-day__summary__date"}>{date}</div>
+        <div className={"record-by-day__summary__date"}>{formatTimeStamp(timeStamp,DateFormat.MONTH_DAYOFWEEK)}</div>
         {Boolean(totalExpenditure) && <div className={"record-by-day__summary__detail"}>支出：{totalExpenditure}</div>}
         {Boolean(totalIncome) && <div className={"record-by-day__summary__detail"}>收入：{totalIncome}</div>}
       </div>

@@ -1,27 +1,20 @@
-import {Empty, Statistic} from 'antd';
+import {Empty} from 'antd';
 import React, {FC, useContext, useState} from 'react';
-import Logo from '../../components/Logo/Logo';
-import LocaleDatePicker from '../../components/LocaleDatePicker/LocaleDatePicker';
 import RecordByDay from '../../components/RecordByDay/RecordByDay';
-import "./DetailPage.css";
 import RecordModal from "../../components/RecordModal/RecordModal";
-import Context from "../../components/Context/Context";
-import {getSummary, groupRecordListByDay} from '../../services/recordFormatter';
+import {groupRecordListByDay} from '../../services/recordFormatter';
 import IconButton from "../../components/IconButton/IconButton";
 import {RecordItem} from "../../hooks/enhancedReducer/reducer/reducer";
-import {updateCurrentMonth, updateRecord} from "../../hooks/enhancedReducer/reducer/action";
-import {createNewRecordAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
+import {createNewRecordAsync, updateRecordAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
+import {Context} from "../../components/ContextProvider/ContextProvider";
 
-interface DetailPageProps {
-}
+import "./DetailPage.css";
 
-const DetailPage: FC<DetailPageProps> = ({}) => {
+const DetailPage: FC = () => {
   const [visible, setVisible] = useState(false);
-
-  const {state, dispatch} = useContext(Context);
   const [updateRecordId, setUpdateRecordId] = useState<number | undefined>();
 
-  const summary = getSummary(state.recordList);
+  const {state, dispatch} = useContext(Context);
   const recordByDay = groupRecordListByDay(state.recordList);
 
   function handleToggleModal() {
@@ -39,38 +32,25 @@ const DetailPage: FC<DetailPageProps> = ({}) => {
 
   function handleUpdateRecord(record: RecordItem) {
     if (record.id) {
-      dispatch(updateRecord(record))
+      dispatch(updateRecordAsync(record))
     } else {
       dispatch(createNewRecordAsync(record))
     }
   }
 
-  function handleChangeCurrentMonth(moment: any) {
-    dispatch(updateCurrentMonth(moment));
-  }
-
   return (
     <div className={"detail-page"}>
       <div className={"detail-page__header"}>
-        <Logo size={"large"}/>
-        <div className={"detail-page__header__category"}>
-          <Statistic title={"请选择月份"}
-                     valueRender={() => <LocaleDatePicker picker={"month"}
-                                                          value={state.currentMonth}
-                                                          onChange={handleChangeCurrentMonth}/>}/>
-          <Statistic title={"总收入"} value={summary.totalIncome}/>
-          <Statistic title={"总支出"} value={summary.totalExpenditure}/>
-          <IconButton icon={"icon-huabanfuben"}
-                      className={"detail-page__header__category__add"}
-                      onClick={handleToggleModal}
-          />
-        </div>
+        <IconButton icon={"icon-huabanfuben"}
+                    className={"detail-page__header__category__add"}
+                    onClick={handleToggleModal}
+        />
       </div>
 
       <div className={"detail-page__content"}>
         {
           recordByDay.length === 0 ? <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={"您本月还没有开始记账"}/> :
-            recordByDay.map(item => <RecordByDay key={item.date} {...item}
+            recordByDay.map(item => <RecordByDay key={item.timeStamp} {...item}
                                                  handleSetUpdateRecordId={handleSetUpdateRecordId}
             />)
         }

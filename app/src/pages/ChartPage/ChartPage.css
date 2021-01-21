@@ -1,0 +1,17 @@
+.chart-page {
+	height: calc(100% - 14.5rem);
+	position: relative;
+}
+
+
+.chart-page__header {
+	right: 3rem;
+	top: -4.2rem;
+	position: absolute;
+}
+
+
+.chart-page__content {
+	height: 100%;
+	overflow-y: auto;
+}

@@ -4,8 +4,8 @@
   "description": "pocket book made by react",
   "main": "index.js",
   "scripts": {
-    "start:app": "cd app && npm start:app",
-    "start:server": "cd server && npm start:server"
+    "start:app": "cd app && yarn run start:app",
+    "start:server": "cd server && yarn run start:server"
   },
   "repository": {
     "type": "git",

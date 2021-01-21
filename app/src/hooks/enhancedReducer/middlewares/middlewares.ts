@@ -5,18 +5,18 @@ import compose from "./compose";
 export type EnhancedActionType = ActionType | ((d: Dispatch<ActionType>) => void);
 export type EnhancedDispatch = (action: EnhancedActionType) => void;
 
-export const thunkMiddleware = (next: Dispatch<ActionType>) => (action: EnhancedActionType) => {
+export const loggerMiddleware = (next: Dispatch<ActionType>) => (action: ActionType) => {
+  console.group("dispatch action")
+  console.info(action)
+  console.groupEnd()
+  return next(action);
+}
+
+export const thunkMiddleware = (next: ReturnType<typeof loggerMiddleware>) => (action: EnhancedActionType) => {
   if (typeof action === "function") {
     return action(next);
   }
   return next(action)
 }
 
-type ThunkMiddlewareNext = ReturnType<typeof thunkMiddleware>;
-
-export const loggerMiddleware = (next: ThunkMiddlewareNext) => (action: EnhancedActionType) => {
-  console.log("dispatch action", action)
-  return next(action);
-}
-
-export default compose(loggerMiddleware, thunkMiddleware);
+export default compose(thunkMiddleware, loggerMiddleware);

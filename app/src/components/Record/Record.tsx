@@ -4,9 +4,9 @@ import Icon from '../Icon/Icon';
 import "./Record.css";
 import IconButton from "../IconButton/IconButton";
 import {Popconfirm} from 'antd';
-import Context from "../Context/Context";
+import {Context} from "../ContextProvider/ContextProvider";
 import {RecordItem} from "../../hooks/enhancedReducer/reducer/reducer";
-import {deleteRecord} from "../../hooks/enhancedReducer/reducer/action";
+import {deleteRecordAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
 
 interface RecordProps extends RecordItem {
   handleSetUpdateRecordId: (recordId: number) => void;
@@ -26,7 +26,7 @@ const Record: FC<RecordProps> = ({id: id, type, name, price, remark, handleSetUp
       <div className={"record__action"}>
         <IconButton icon={"icon-bianji"} onClick={() => handleSetUpdateRecordId(id!)}/>
         <Popconfirm placement="topRight" okText="确认" cancelText="取消" title={"您确认想删除这条记录吗？"} onConfirm={() => {
-          dispatch(deleteRecord(id!))
+          dispatch(deleteRecordAsync(id!))
         }}>
           <IconButton icon={"icon-shanchu"}/>
         </Popconfirm>
