@@ -1,25 +1,23 @@
-import React, {FC, useContext, useState} from 'react';
-import ChartModeSelect, {ChartMode} from "../../components/ChartModeSelect/ChartModeSelect";
+import React, {FC, useContext} from 'react';
 import {Context} from "../../components/ContextProvider/ContextProvider";
-import LineChartDetail from "./LineChartDetail/LineChartDetail";
-import PieChartDetail from "./PieChartDetail/PieChartDetail";
 import "./ChartPage.css";
+import {getEveryDaySummaryOfMonth, getEveryTypeSummary} from "../../services/recordFormatter";
+import LineChartSummary from "./LineChartSummary";
+import PieChartSummary from "./PieChartSummary";
 
 const ChartPage: FC = () => {
-  const [mode, setMode] = useState(ChartMode.PIE_CHART);
-  const {state} = useContext(Context);
+  const {state: {currentMonth, recordList}} = useContext(Context);
+  const everyDayPayment = getEveryDaySummaryOfMonth(currentMonth, recordList);
+  const {incomeSummary, expenditureSummary} = getEveryTypeSummary(recordList);
 
-  console.log("mode", mode);
   return (
     <div className={"chart-page"}>
       <div className={"chart-page__header"}>
-        <ChartModeSelect mode={mode} onChange={setMode}/>
       </div>
       <div className={"chart-page__content"}>
-        {mode === ChartMode.LINE_CHART ?
-          <LineChartDetail currentMonth={state.currentMonth} recordList={state.recordList}/> :
-          <PieChartDetail currentMonth={state.currentMonth} recordList={state.recordList}/>
-        }
+        <LineChartSummary title={"本月收支情况"} data={everyDayPayment}/>
+        <PieChartSummary title={"支出情况"} data={expenditureSummary}/>
+        <PieChartSummary title={"收入情况"} data={incomeSummary}/>
       </div>
     </div>
   );

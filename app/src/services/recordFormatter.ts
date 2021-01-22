@@ -47,7 +47,8 @@ export const groupRecordListByDay = (recordList: RecordItem[]): RecordListByDay[
 }
 
 
-export const getEveryDaySummaryOfMonth = (month: Moment, recordList: RecordItem[]): Array<Summary & { date: number }> => {
+export type EverydaySummary = Summary & { date: number };
+export const getEveryDaySummaryOfMonth = (month: Moment, recordList: RecordItem[]): EverydaySummary[] => {
   const daysOfMonth = month.daysInMonth();
   const resultOfPayment = groupRecordListByDay(recordList)
     .map(d => ({
@@ -62,4 +63,27 @@ export const getEveryDaySummaryOfMonth = (month: Moment, recordList: RecordItem[
     result.push(payment || {date: i, totalExpenditure: 0, totalIncome: 0})
   }
   return result
+}
+
+export interface TypeSummary {
+  name: string;
+  price: number;
+}
+
+export const getEveryTypeSummary = (recordList: RecordItem[]) => {
+  const incomeSummary: TypeSummary[] = [];
+  const expenditureSummary: TypeSummary[] = [];
+
+  recordList.forEach(record => {
+    const targetList = record.type === RecordType.Income ? incomeSummary : expenditureSummary;
+
+    const targetType = targetList.find(item => item.name === record.name)
+    if (targetType) {
+      targetType.price += Math.abs(record.price)
+    } else {
+      targetList.push({name: record.name, price: Math.abs(record.price)})
+    }
+  })
+
+  return {incomeSummary, expenditureSummary};
 }

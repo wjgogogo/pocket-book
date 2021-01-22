@@ -110,6 +110,55 @@
       "price": -100,
       "remark": "话费",
       "id": 15
+    },
+    {
+      "timeStamp": 1611246446089,
+      "type": "expenditure",
+      "name": "办公",
+      "price": -100,
+      "id": 16
+    },
+    {
+      "timeStamp": 1611246452886,
+      "type": "expenditure",
+      "name": "礼物",
+      "price": -100,
+      "id": 17
+    },
+    {
+      "timeStamp": 1611246458573,
+      "type": "expenditure",
+      "name": "旅行",
+      "price": -100,
+      "id": 18
+    },
+    {
+      "timeStamp": 1611246463676,
+      "type": "expenditure",
+      "name": "亲友",
+      "price": -100,
+      "id": 19
+    },
+    {
+      "timeStamp": 1611246469080,
+      "type": "expenditure",
+      "name": "住房",
+      "price": -2000,
+      "id": 20
+    },
+    {
+      "timeStamp": 1611246478893,
+      "type": "expenditure",
+      "name": "汽车",
+      "price": -200,
+      "id": 21
+    },
+    {
+      "timeStamp": 1611246486694,
+      "type": "expenditure",
+      "name": "旅行",
+      "price": -200,
+      "id": 22
     }
   ]
 }
