@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "bacteria369 <906626481@qq.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
 }

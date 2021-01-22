@@ -4,9 +4,13 @@
   "description": "pocket book made by react",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "npm run bootstrap:server & npm run bootstrap:app",
+    "bootstrap:app": "cd app && npm i",
+    "bootstrap:server": "cd server && npm i",
+
+    "start": "npm run start:server & npm run start:app",
     "start:app": "cd app && npm start",
-    "start:server": "cd server && npm start",
-    "start": "npm run start:server & npm run start:app"
+    "start:server": "cd server && npm start"
   },
   "repository": {
     "type": "git",
