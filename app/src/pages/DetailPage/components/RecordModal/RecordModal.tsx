@@ -1,14 +1,14 @@
 import React, {FC, useEffect, useState} from 'react';
 import {Input, message, Modal, Tabs,} from "antd";
 import "./RecordModal.css";
-import IconButton from "../IconButton/IconButton";
-import {EXPENDITURE_ICON_LIST, INCOME_ICON_LIST} from "../../constants";
-import LocaleDatePicker from "../LocaleDatePicker/LocaleDatePicker";
 import classNames from "classnames";
 import {Moment} from "moment";
-import {normalizeDate} from "../../services/dateFormatter";
-import {normalizeRecord, RecordWithMomentTimStamp} from "../../services/recordFormatter";
-import {RecordItem, RecordType} from "../../hooks/enhancedReducer/reducer/reducer";
+import {RecordItem, RecordType} from "../../../../hooks/enhancedReducer/reducer/reducer";
+import {normalizeRecord, RecordWithMomentTimStamp} from "../../../../services/recordFormatter";
+import {normalizeDate} from "../../../../services/dateFormatter";
+import {EXPENDITURE_ICON_LIST, INCOME_ICON_LIST} from "../../../../constants";
+import IconButton from "../../../../components/IconButton/IconButton";
+import LocaleDatePicker from "../../../../components/LocaleDatePicker/LocaleDatePicker";
 
 interface RecordModalProps {
   visible: boolean;

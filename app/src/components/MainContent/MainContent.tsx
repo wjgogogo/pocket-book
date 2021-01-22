@@ -5,9 +5,9 @@ import {ROUTES} from "../../services/routes";
 import "./MainContent.css";
 import Logo from "../Logo/Logo";
 import LocaleDatePicker from "../LocaleDatePicker/LocaleDatePicker";
-import {Context} from "../ContextProvider/ContextProvider";
 import {getSummary} from "../../services/recordFormatter";
 import {updateCurrentMonth} from "../../hooks/enhancedReducer/reducer/action";
+import {Context} from "../ContextProvider";
 
 
 const MainContent: FC = () => {

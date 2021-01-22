@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
-
 import {Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip,} from "recharts";
 import {Card} from "antd";
-import {TypeSummary} from "../../services/recordFormatter";
-import {COLOR_PALETTE} from "../../constants";
+import {TypeSummary} from "../../../services/recordFormatter";
+import {COLOR_PALETTE} from "../../../constants";
 
 interface PieChartSummaryProps {
   title: string;

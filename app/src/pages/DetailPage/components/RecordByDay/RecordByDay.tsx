@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import {RecordListByDay} from '../../services/recordFormatter';
 import Record from '../Record/Record';
 import "./RecordByDay.css";
-import {DateFormat, formatTimeStamp} from "../../services/dateFormatter";
+import {RecordListByDay} from "../../../../services/recordFormatter";
+import {DateFormat, formatTimeStamp} from "../../../../services/dateFormatter";
 
 interface RecordByDayProps extends RecordListByDay {
   handleSetUpdateRecordId: (recordId: number) => void;

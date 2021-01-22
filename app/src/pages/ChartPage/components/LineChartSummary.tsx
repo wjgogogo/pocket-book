@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {Card} from "antd";
 import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
-import {EverydaySummary} from "../../services/recordFormatter";
-import {COLOR_PALETTE} from "../../constants";
+import {EverydaySummary} from "../../../services/recordFormatter";
+import {COLOR_PALETTE} from "../../../constants";
 
 
 interface LineChartSummaryProps {

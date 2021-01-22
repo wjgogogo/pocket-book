@@ -1,9 +1,9 @@
 import React, {FC, useContext} from 'react';
-import {Context} from "../../components/ContextProvider/ContextProvider";
 import "./ChartPage.css";
 import {getEveryDaySummaryOfMonth, getEveryTypeSummary} from "../../services/recordFormatter";
-import LineChartSummary from "./LineChartSummary";
-import PieChartSummary from "./PieChartSummary";
+import LineChartSummary from "./components/LineChartSummary";
+import PieChartSummary from "./components/PieChartSummary";
+import {Context} from "../../components/ContextProvider";
 
 const ChartPage: FC = () => {
   const {state: {currentMonth, recordList}} = useContext(Context);

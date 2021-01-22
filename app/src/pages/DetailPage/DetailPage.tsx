@@ -1,14 +1,14 @@
 import {Empty} from 'antd';
 import React, {FC, useContext, useState} from 'react';
-import RecordByDay from '../../components/RecordByDay/RecordByDay';
-import RecordModal from "../../components/RecordModal/RecordModal";
 import {groupRecordListByDay} from '../../services/recordFormatter';
 import IconButton from "../../components/IconButton/IconButton";
 import {RecordItem} from "../../hooks/enhancedReducer/reducer/reducer";
 import {createNewRecordAsync, updateRecordAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
-import {Context} from "../../components/ContextProvider/ContextProvider";
 
 import "./DetailPage.css";
+import RecordModal from "./components/RecordModal/RecordModal";
+import RecordByDay from "./components/RecordByDay/RecordByDay";
+import {Context} from "../../components/ContextProvider";
 
 const DetailPage: FC = () => {
   const [visible, setVisible] = useState(false);

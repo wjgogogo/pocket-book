@@ -22,11 +22,6 @@ const SideMenu: FC = () => {
             图表
           </Link>
         </Menu.Item>
-        {/*<Menu.Item key="setting" icon={<Icon icon={"icon-shezhi"}/>}>*/}
-        {/*  <Link to={"/setting"}>*/}
-        {/*    设置*/}
-        {/*  </Link>*/}
-        {/*</Menu.Item>*/}
       </Menu>
     </Layout.Sider>
   );

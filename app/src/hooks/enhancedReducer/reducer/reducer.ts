@@ -28,7 +28,7 @@ export const defaultState: State = {
   recordList: []
 };
 
-export default (state: State, action: ActionType) => {
+const reducer= (state: State, action: ActionType) => {
   switch (action.type) {
     case Action.UPDATE_RECORD_LIST:
       return {
@@ -64,3 +64,4 @@ export default (state: State, action: ActionType) => {
       return state;
   }
 };
+export default reducer;

@@ -1,8 +1,8 @@
 import React, {createContext, FC, useEffect} from 'react';
-import {useEnhancedReducer} from "../../hooks/enhancedReducer/useEnhancedReducer";
-import {defaultState, State} from "../../hooks/enhancedReducer/reducer/reducer";
-import {EnhancedDispatch} from "../../hooks/enhancedReducer/middlewares/middlewares";
-import {fetchRecordListAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
+import {defaultState, State} from "../hooks/enhancedReducer/reducer/reducer";
+import {EnhancedDispatch} from "../hooks/enhancedReducer/middlewares/middlewares";
+import {useEnhancedReducer} from "../hooks/enhancedReducer/useEnhancedReducer";
+import {fetchRecordListAsync} from "../hooks/enhancedReducer/reducer/asyncAction";
 
 export const Context = createContext<{
   state: State,

@@ -1,18 +1,18 @@
 import React, {FC, useContext} from 'react';
-import {getIconByName} from '../../services/iconSelector';
-import Icon from '../Icon/Icon';
 import "./Record.css";
-import IconButton from "../IconButton/IconButton";
 import {Popconfirm} from 'antd';
-import {Context} from "../ContextProvider/ContextProvider";
-import {RecordItem} from "../../hooks/enhancedReducer/reducer/reducer";
-import {deleteRecordAsync} from "../../hooks/enhancedReducer/reducer/asyncAction";
+import {RecordItem} from "../../../../hooks/enhancedReducer/reducer/reducer";
+import {getIconByName} from "../../../../services/iconSelector";
+import Icon from "../../../../components/Icon/Icon";
+import IconButton from "../../../../components/IconButton/IconButton";
+import {deleteRecordAsync} from "../../../../hooks/enhancedReducer/reducer/asyncAction";
+import {Context} from "../../../../components/ContextProvider";
 
 interface RecordProps extends RecordItem {
   handleSetUpdateRecordId: (recordId: number) => void;
 }
 
-const Record: FC<RecordProps> = ({id: id, type, name, price, remark, handleSetUpdateRecordId}) => {
+const Record: FC<RecordProps> = ({id, type, name, price, remark, handleSetUpdateRecordId}) => {
 
   const {dispatch} = useContext(Context);
   const icon = getIconByName(type, name);
