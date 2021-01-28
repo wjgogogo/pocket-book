@@ -7,21 +7,21 @@ import axiosInstance from "../../../services/request";
 
 export const fetchRecordListAsync = (month: Moment) => async (dispatch: Dispatch<ActionType>) => {
   const [start, end] = getMonthRange(month);
-  const recordList = await axiosInstance.get<any, RecordItem[]>(`/records?timeStamp_gte=${start}&timeStamp_lte=${end}`)
+  const recordList = await axiosInstance.get<any, RecordItem[]>(`/api/records?timeStamp_gte=${start}&timeStamp_lte=${end}`)
   dispatch(updateRecordList(recordList))
 }
 
 export const createNewRecordAsync = (record: RecordItem) => async (dispatch: Dispatch<ActionType>) => {
-  const newRecord = await axiosInstance.post<any, RecordItem>(`/records`, record)
+  const newRecord = await axiosInstance.post<any, RecordItem>(`/api/records`, record)
   dispatch(addRecord(newRecord))
 }
 
 export const updateRecordAsync = (record: RecordItem) => async (dispatch: Dispatch<ActionType>) => {
-  const updated = await axiosInstance.put<any, RecordItem>(`/records/${record.id}`, record)
+  const updated = await axiosInstance.put<any, RecordItem>(`/api/records/${record.id}`, record)
   dispatch(updateRecord(updated))
 }
 
 export const deleteRecordAsync = (recordId: number) => async (dispatch: Dispatch<ActionType>) => {
-  await axiosInstance.delete<any, RecordItem>(`/records/${recordId}`)
+  await axiosInstance.delete<any, RecordItem>(`/api/records/${recordId}`)
   dispatch(deleteRecord(recordId))
 }

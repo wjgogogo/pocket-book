@@ -1,10 +1,5 @@
 import axios from "axios";
 
+axios.interceptors.response.use((value) => value.data);
 
-const axiosInstance = axios.create({
-  baseURL: "http://localhost:8000",
-})
-
-axiosInstance.interceptors.response.use((value => value.data))
-
-export default axiosInstance;
+export default axios;
